@@ -6,7 +6,7 @@ module Mutant
     # Rspec strategy base class
     class Rspec < self
 
-      KILLER = Killer::Forking.new(Killer::Rspec)
+      KILLER = Killer::Threading.new(Killer::Rspec)
 
       # Setup rspec strategy
       #
