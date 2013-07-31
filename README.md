@@ -1,9 +1,15 @@
+WARNING
+=======
+
+The code in this repo (https://github.com/L2G/mutant) is HIGHLY EXPERIMENTAL
+at this time. It is hard-wired to use threading instead of forking. Please
+take care in using it if you are unfamiliar with it. DO NOT rely on it for
+production or mission-critical applications.
+
+----
+
 mutant
 ======
-
-[![Build Status](https://secure.travis-ci.org/mbj/mutant.png?branch=master)](http://travis-ci.org/mbj/mutant)
-[![Dependency Status](https://gemnasium.com/mbj/mutant.png)](https://gemnasium.com/mbj/mutant)
-[![Code Climate](https://codeclimate.com/github/mbj/mutant.png)](https://codeclimate.com/github/mbj/mutant)
 
 Mutant is a mutation testing tool for ruby.
 
