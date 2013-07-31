@@ -32,13 +32,13 @@ module Mutant
       # @api private
       #
       def run
-        pid = fork do
+        killer = nil
+        th = ::Thread.new do
           killer = @killer.new(strategy, mutation)
-          exit(killer.killed? ? CLI::EXIT_SUCCESS : CLI::EXIT_FAILURE)
         end
 
-        status = Process.wait2(pid).last
-        status.exited? && status.success?
+        status = th.join
+        !status.nil? && killer.killed?
       end
 
     end # Threaded
