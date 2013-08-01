@@ -15,8 +15,12 @@ module Mutant
     # @api private
     #
     def self.each(node, parent = nil, &block)
-      return to_enum(__method__, node, parent) unless block_given?
-      Registry.lookup(node).new(node, parent, block)
+      begin
+        return to_enum(__method__, node, parent) unless block_given?
+        Registry.lookup(node).new(node, parent, block)
+      rescue Unparser::MalformedTreeError
+        # Something went wrong; maybe we mutated the tree TOO much?
+      end
 
       self
     end
