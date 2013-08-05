@@ -8,6 +8,7 @@ module Mutant
         # Printer for killer results
         class Killer < self
 
+          handle(Mutant::Killer::Forked)
           handle(Mutant::Killer::Threaded)
 
           SUCCESS = '.'.freeze
