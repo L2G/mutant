@@ -1,10 +1,10 @@
 WARNING
 =======
 
-The code in this repo (https://github.com/L2G/mutant) is HIGHLY EXPERIMENTAL
-at this time. It is hard-wired to use threading instead of forking. Please
-take care in using it if you are unfamiliar with it. DO NOT rely on it for
-production or mission-critical applications.
+The code in this repo (https://github.com/L2G/mutant) is HIGHLY EXPERIMENTAL at
+this time (see the note below about threading). Please take care in using it if
+you are unfamiliar with it. DO NOT rely on it for production or
+mission-critical applications.
 
 ----
 
@@ -18,8 +18,11 @@ or it does not have a speced side effect.
 
 A more readable introduction can be found under: http://solnic.eu/2013/01/23/mutation-testing-with-mutant.html
 
-Mutant supports MRI and RBX 1.9 and 2.0, while support for jruby is planned. It should also work under
-any ruby engine that supports POSIX-fork(2) semantics.
+Mutant supports MRI and RBX 1.9 and 2.0, while support for jruby is planned. It
+should also work under any ruby engine that supports POSIX-fork(2) semantics.
+(In environments without fork(), mutant will attempt to use threading instead of
+forking; note, however, that this feature is *_highly experimental_* and may
+break in unknown situations!)
 
 Only rspec2 is supported currently. This is subject to change.
 

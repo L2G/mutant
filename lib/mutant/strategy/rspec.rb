@@ -6,7 +6,14 @@ module Mutant
     class Rspec < self
       include Equalizer.new
 
-      KILLER = Killer::Threading.new(Killer::Rspec)
+      KILLER = if Kernel.respond_to?(:fork)
+        Killer::Forking.new(Killer::Rspec)
+      else
+        warn "** You are using a Ruby environment without process forking.\n" +
+             "Threading will be used instead. This feature is EXPERIMENTAL\n" +
+             "and mutant is not yet guaranteed to run correctly in this mode!"
+        Killer::Threading.new(Killer::Rspec)
+      end
 
       # Setup rspec strategy
       #
