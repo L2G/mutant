@@ -19,6 +19,7 @@ require 'diff/lcs/hunk'
 require 'rspec'
 require 'anima'
 require 'concord'
+require 'rspec'
 
 # Library namespace
 module Mutant
@@ -26,6 +27,7 @@ module Mutant
   EMPTY_STRING = ''.freeze
 end # Mutant
 
+require 'mutant/version'
 require 'mutant/cache'
 require 'mutant/node_helpers'
 require 'mutant/singleton_methods'
@@ -73,6 +75,7 @@ require 'mutant/mutator/node/send/binary'
 require 'mutant/mutator/node/when'
 require 'mutant/mutator/node/define'
 require 'mutant/mutator/node/mlhs'
+require 'mutant/mutator/node/nthref'
 require 'mutant/mutator/node/masgn'
 require 'mutant/mutator/node/return'
 require 'mutant/mutator/node/block'
@@ -105,11 +108,7 @@ require 'mutant/killer/threading'
 require 'mutant/killer/threaded'
 require 'mutant/strategy'
 require 'mutant/strategy/static'
-require 'mutant/strategy/method_expansion'
 require 'mutant/strategy/rspec'
-require 'mutant/strategy/rspec/dm2'
-require 'mutant/strategy/rspec/dm2/lookup'
-require 'mutant/strategy/rspec/dm2/lookup/method'
 require 'mutant/runner'
 require 'mutant/runner/config'
 require 'mutant/runner/subject'
